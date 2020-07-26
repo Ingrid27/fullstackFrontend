@@ -171,6 +171,10 @@ td button:hover, td button:focus{
   background-color: transparent;
 }
 
+.addNull{
+  color: silver!important;
+}
+
 /* /////////////RESPONSIVE/////////////////////
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */

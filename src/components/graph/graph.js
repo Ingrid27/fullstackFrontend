@@ -1,7 +1,7 @@
 // Importando o React
 import React, {Component} from "react";
 // Importando os components necessários da lib react-materialize
-import { Row} from 'react-materialize'
+import { Row, Icon} from 'react-materialize'
 import axios from 'axios';
 
 import {Doughnut} from 'react-chartjs-2'
@@ -40,44 +40,55 @@ class Contact  extends Component {
 
     let tot = rFixa + rVari
 
+    this.t ={tot} 
+
     let perFix = (100*rFixa)/tot
     let perVari = (100*rVari)/tot
 
-   const graph = {
-        labels: [perFix.toFixed(0)+'% RENDA FIXA', perVari.toFixed(0)+'% RENDA VARIÁVEL'],
-        datasets: [
-          {
-            label: 'Rainfall',
-            backgroundColor: [
-              '#ff595e',
-              '#8ac926'
-            ], 
-            data: [rFixa, rVari]
-          }
-        ]
-      }
-
+    const graph = {
+      labels: [perFix.toFixed(0)+'% RENDA FIXA', perVari.toFixed(0)+'% RENDA VARIÁVEL'],
+      datasets: [
+        {
+          label: 'Rainfall',
+          backgroundColor: [
+            '#ff595e',
+            '#8ac926'
+          ], 
+          data: [rFixa, rVari]
+        }
+      ]
+    }   
+  
     return (
       <Row>
         <div class="col m2 l2"></div>
-        <div className="col s12 m8 l8">
-            <Doughnut
-              data={graph}
-              options={{
-                legend:{
-                  position:'bottom',
-                  labels:{
-                    fontColor: '#000',
-                    FontFamily: 'Oswald',
-                    fontSize: 11,
-                    boxWidth: 20
-                  }
-                },
-                cutoutPercentage:75,
-              }}
-              
-        />
-        </div>
+        {this.t.tot === 0 && 
+         <div className="addNull col s12 m8 l8">
+          <p className="center-align"><Icon medium>add_circle_outline</Icon></p>
+          <p className="center-align">ADICIONE UM INVESTIMENTO PARA COMEÇAR!</p>
+         </div>
+        }
+        {this.t.tot > 0 && 
+          
+          <div className="col s12 m8 l8">
+              <Doughnut
+                data={graph}
+                options={{
+                  legend:{
+                    position:'bottom',
+                    labels:{
+                      fontColor: '#000',
+                      FontFamily: 'Oswald',
+                      fontSize: 11,
+                      boxWidth: 20
+                    }
+                  },
+                  cutoutPercentage:75,
+                }}
+                
+            />
+          </div>
+        }
         <div class="col m2 l2"></div>
       </Row>
     )

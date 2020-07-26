@@ -27,32 +27,49 @@ class TblFix  extends Component {
         });
     }
   
-  
   render () {
+
     const rendFix = "Renda_Fixa";
+    let filterFix = this.state.investments.filter((type) => {
+      return type.type === rendFix;
+    });
+    let rFixa = filterFix.reduce((sum, value) => {
+      return sum + value.value;
+    }, 0);
+
+    this.tot = {rFixa} 
+
     let rendim = this.state.investments.filter((type) => {
       return type.type === rendFix;
     });
     return (
         <Row>
-          <Table className="highlight centered">
-                <thead>
-                  <tr>
-                      <th>Data</th>
-                      <th>Valor</th>
-                      <th>Excluir</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {rendim.map((investment) => (
+          {this.tot.rFixa === 0 && 
+            <div className="addNull">
+            <p className="center-align"><Icon medium>add_circle_outline</Icon></p>
+            <p className="center-align">ADICIONE UM INVESTIMENTO DO TIPO RENDA FIXA!</p>
+            </div>
+          }
+          {this.tot.rFixa > 0 && 
+            <Table className="highlight centered">
+                  <thead>
                     <tr>
-                      <td><span>{investment.date}</span></td>
-                      <td><span>R$ {investment.value.toLocaleString('pt-BR', { minimumFractionDigits: 2})}</span></td>
-                      <td><button onClick={(e) => this.deleteRow(investment._id, e)}><Icon>delete_forever</Icon></button></td>
+                        <th>Data</th>
+                        <th>Valor</th>
+                        <th>Excluir</th>
                     </tr>
-                  ))}
-                </tbody>
-            </Table>
+                  </thead>
+                  <tbody>
+                    {rendim.map((investment) => (
+                      <tr>
+                        <td><span>{investment.date}</span></td>
+                        <td><span>R$ {investment.value.toLocaleString('pt-BR', { minimumFractionDigits: 2})}</span></td>
+                        <td><button onClick={(e) => this.deleteRow(investment._id, e)}><Icon>delete_forever</Icon></button></td>
+                      </tr>
+                    ))}
+                  </tbody>
+              </Table>
+          }
         </Row>
         
     );

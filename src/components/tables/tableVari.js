@@ -29,29 +29,48 @@ class TblVari  extends Component {
   
   render () {
     const rendVari = "Renda_Variavel";
+    
+    let filterVari = this.state.investments.filter((type) => {
+      return type.type === rendVari;
+    });
+
+    let rVari = filterVari.reduce((sum, value) => {
+      return sum + value.value;
+    }, 0);
+
+    this.tot ={rVari} 
+
     let rendim = this.state.investments.filter((type) => {
       return type.type === rendVari;
     });
     return (
         <Row>
-          <Table className="highlight centered">
-                <thead>
-                  <tr>
-                      <th>Data</th>
-                      <th>Valor</th>
-                      <th>Excluir</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {rendim.map((investment) => (
+          {this.tot.rVari === 0 && 
+            <div className="addNull">
+              <p className="center-align"><Icon medium>add_circle_outline</Icon></p>
+              <p className="center-align">ADICIONE UM INVESTIMENTO DO TIPO RENDA VARIÁVEL!</p>
+            </div>
+          }
+          {this.tot.rVari > 0 && 
+            <Table className="highlight centered">
+                  <thead>
                     <tr>
-                      <td><span>{investment.date}</span></td>
-                      <td><span>R$ {investment.value.toLocaleString('pt-BR', { minimumFractionDigits: 2})}</span></td>
-                      <td><button onClick={(e) => this.deleteRow(investment._id, e)}><Icon>delete_forever</Icon></button></td>
+                        <th>Data</th>
+                        <th>Valor</th>
+                        <th>Excluir</th>
                     </tr>
-                  ))}
-                </tbody>
-            </Table>
+                  </thead>
+                  <tbody>
+                    {rendim.map((investment) => (
+                      <tr>
+                        <td><span>{investment.date}</span></td>
+                        <td><span>R$ {investment.value.toLocaleString('pt-BR', { minimumFractionDigits: 2})}</span></td>
+                        <td><button onClick={(e) => this.deleteRow(investment._id, e)}><Icon>delete_forever</Icon></button></td>
+                      </tr>
+                    ))}
+                  </tbody>
+              </Table>
+          }
         </Row>
         
     );
