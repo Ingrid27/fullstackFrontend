@@ -64,7 +64,7 @@ class Forms  extends Component {
                     <p className="center-align tit">adicione um investimento:</p>
                     <hr className="hrBl"/>
                     <label className=" col s4">
-                        Tipo:
+                        Tipo*:
                     <select className="browser-default mbForm mtForm" value={this.state.type} onChange={this.onChangeType}>
                         <option value="" disabled selected>Selecione</option>
                         <option value="Renda_Fixa" >Renda Fixa</option>
@@ -72,11 +72,11 @@ class Forms  extends Component {
                     </select>                        
                     </label>
                     <label className=" col s4">
-                        Valor:
+                        Valor*:
                         <input className='padInput mbForm mtForm' type="number" placeholder="Valor" value={this.state.value} onChange={this.onChangevalue}/>
                     </label>
                     <label className=" col s4">
-                        Data:
+                        Data*:
                         <input className='padInput mtForm' type="date" value={this.state.date} onChange={this.onChangeDate}/>
                     </label>
                     <div className="col m12 l12 s12">
