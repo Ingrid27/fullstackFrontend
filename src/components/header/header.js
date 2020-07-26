@@ -30,11 +30,11 @@ const Header = (props) => (
         SAIR
       </a>
       <div className="quad fRight desk">
-          <i class="material-icons">account_circle</i>
+          <Icon class="material-icons">account_circle</Icon>
           <span>{props.name}</span>
       </div>
       <div className="quad fRight mob">
-          <i className="large material-icons perf mob">account_circle</i>
+          <Icon className="large material-icons perf mob">account_circle</Icon>
           <span>{props.name}</span>
           <hr/>
       </div>
