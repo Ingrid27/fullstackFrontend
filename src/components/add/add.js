@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { Button, Modal} from 'react-materialize';
 import axios from 'axios'
+import Icon from 'react-materialize/lib/Icon';
 
 const API_URL = 'https://api-fullstackgo.herokuapp.com/api';
 
@@ -81,7 +82,7 @@ class Add extends Component {
                 trigger={
                     <div className="fixed-action-btn">
                         <a className="btn-floating btn-large light-blue accent-3" src={Add}>
-                        <i className="large material-icons">add</i>
+                        <Icon>add</Icon>
                         </a>
                     </div>
                 }
