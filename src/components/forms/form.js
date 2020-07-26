@@ -1,7 +1,7 @@
 // Importando o React
 import React, {Component} from "react";
 // Importando os components necessários da lib react-materialize
-import { Row, Col, Card, Input, Button } from 'react-materialize';
+import { Row} from 'react-materialize';
 
 import axios from 'axios';
 

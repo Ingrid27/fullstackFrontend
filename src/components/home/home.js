@@ -57,7 +57,7 @@ class Home  extends Component {
                 <hr className="hrBl"/>
                 <ChartsPage />
                 <hr className="hrBl"/>
-                <p className="tit">TOTAL INVESTIDO: R$<span>{tot}</span></p>
+                <p className="tit">TOTAL INVESTIDO: R$ <span>{tot}</span></p>
               </div>
             </Card>
           </div>
@@ -68,7 +68,7 @@ class Home  extends Component {
                 <hr className="rendF"/>
                 <TblFix/>
                 <hr className="rendF"/>
-                <p className="tit">TOTAL: R$<span>{calcFix}</span></p>
+                <p className="tit">TOTAL: R$ <span>{calcFix}</span></p>
               </div>
           </Card>
           </div>
@@ -79,7 +79,7 @@ class Home  extends Component {
               <hr className="rendV"/>
               <TblVari/>
               <hr className="rendV"/>
-              <p className="tit">TOTAL: R$<span>{calcVari}</span></p>
+              <p className="tit">TOTAL: R$ <span>{calcVari}</span></p>
             </div>
           </Card>
           </div>

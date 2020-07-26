@@ -10,7 +10,7 @@ const Header = (props) => (
     <Navbar
       className="flow-text"
       alignLinks="right"
-      brand={<a className="brand-logo light-blue-text text-accent-3" style={{display:'flex'}} href=""><img src={logo}></img><b className="desk">MINHA CARTEIRA</b></a>}
+    brand={<a className="brand-logo light-blue-text text-accent-3" style={{display:'flex'}} href="/"><img src={logo} alt="Logo"></img><b className="desk">MINHA CARTEIRA</b></a>}
       id="mobile-nav"
       menuIcon={<Icon>menu</Icon>}
       options={{
@@ -26,7 +26,7 @@ const Header = (props) => (
       }}
       sidenav={<li>Custom node!</li>}
     >
-      <a className="fRight pl10 desk" href="">
+      <a className="fRight pl10 desk" href="/">
         SAIR
       </a>
       <div className="quad fRight desk">
@@ -40,7 +40,7 @@ const Header = (props) => (
       </div>
       <div className="col s3"></div>
       <div className="col s6 mob">
-        <a waves="light" className= "waves-effect waves-light btnYe">SAIR</a>
+        <a waves="light" className= "waves-effect waves-light btnYe" href="/">SAIR</a>
       </div>
       <div className="col s3"></div>
 
