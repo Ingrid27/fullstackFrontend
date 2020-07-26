@@ -43,6 +43,7 @@ class Contact  extends Component {
     let perFix = (100*rFixa)/tot
     let perVari = (100*rVari)/tot
 
+    let format = rVari.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL', minimumFractionDigits: 2});
 
     const graph = {
         labels: [perFix.toFixed(0)+'% RENDA FIXA', perVari.toFixed(0)+'% RENDA VARIÁVEL'],

@@ -146,7 +146,7 @@ nav a:hover, nav .a:focus{
 }
 
 .btnYe:hover, .btnYe:focus{ 
-  background-color: #00b0ff!important;
+  background-color: #ffba00!important;
 }
 
 .btnGr{
@@ -158,6 +158,17 @@ nav a:hover, nav .a:focus{
 
 .btnGr:hover, .btnYe:focus{ 
   background-color: #888888
+}
+
+td button {
+  background-color: transparent;
+  border: solid 0px;
+  color: #ca0909;
+}
+
+td button:hover, td button:focus{
+  color: #921616!important;
+  background-color: transparent;
 }
 
 /* /////////////RESPONSIVE/////////////////////

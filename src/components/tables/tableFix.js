@@ -1,7 +1,7 @@
 // Importando o React
 import React, {Component} from "react";
 // Importando os components necessários da lib react-materialize
-import { Row, Table} from 'react-materialize';
+import { Row, Table, Icon} from 'react-materialize';
 import axios from 'axios'
 
 const API_URL = 'https://api-fullstackgo.herokuapp.com/api';
@@ -47,8 +47,8 @@ class TblFix  extends Component {
                   {rendim.map((investment) => (
                     <tr>
                       <td><span>{investment.date}</span></td>
-                      <td><span>R$ {investment.value}</span></td>
-                      <td><a onClick={(e) => this.deleteRow(investment._id, e)}>X</a></td>
+                      <td><span>R$ {investment.value.toLocaleString('pt-BR', { minimumFractionDigits: 2})}</span></td>
+                      <td><button onClick={(e) => this.deleteRow(investment._id, e)}><Icon>delete_forever</Icon></button></td>
                     </tr>
                   ))}
                 </tbody>
