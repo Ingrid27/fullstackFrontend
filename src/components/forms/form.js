@@ -32,24 +32,26 @@ class Forms  extends Component {
     onChangeDate(e) {
         this.setState({ date: e.target.value })
     }
-
+    
     onSubmit(e) {
         e.preventDefault()
-
         const userObject = {
             type: this.state.type,
             value: this.state.value,
             date: this.state.date
         };
         
+        this.setState({ type: '', value: '', date: '' });
+        
         axios.post('https://api-fullstackgo.herokuapp.com/api/interest', userObject)
             .then((res) => {
                 console.log(res.data)
+                window.location.reload()
             }).catch((error) => {
                 console.log(error)
             });
 
-        this.setState({ type: '', value: '', date: '' })
+        
     }
 
 

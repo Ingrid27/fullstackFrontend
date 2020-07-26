@@ -18,6 +18,15 @@ class TblFix  extends Component {
         console.log(this.state.investments)
       });
     }
+    deleteRow(_id, e){
+      axios.delete(`https://api-fullstackgo.herokuapp.com/api/interest/${_id}`)
+        .then(res => {
+          console.log(res);
+          console.log(res.data);
+          window.location.reload()
+        });
+    }
+  
   
   render () {
     const rendFix = "Renda_Fixa";
@@ -39,7 +48,7 @@ class TblFix  extends Component {
                     <tr>
                       <td><span>{investment.date}</span></td>
                       <td><span>R$ {investment.value}</span></td>
-                      <td><a href="/">X</a></td>
+                      <td><a onClick={(e) => this.deleteRow(investment._id, e)}>X</a></td>
                     </tr>
                   ))}
                 </tbody>
