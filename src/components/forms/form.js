@@ -2,8 +2,8 @@
 import React, {Component} from "react";
 // Importando os components necessários da lib react-materialize
 import { Row} from 'react-materialize';
-
 import axios from 'axios';
+
 
 class Forms  extends Component {
     constructor(props) {
@@ -17,9 +17,11 @@ class Forms  extends Component {
         this.state = {
             type: '',
             value: '',
-            date: ''
+            date: '',
         }
+        
     }
+
 
     onChangeType(e) {
         this.setState({ type: e.target.value })
@@ -27,6 +29,8 @@ class Forms  extends Component {
 
     onChangevalue(e) {
         this.setState({ value: e.target.value })
+    
+
     }
 
     onChangeDate(e) {
@@ -40,7 +44,8 @@ class Forms  extends Component {
             value: this.state.value,
             date: this.state.date
         };
-        
+    
+    
         this.setState({ type: '', value: '', date: '' });
         
         axios.post('https://api-fullstackgo.herokuapp.com/api/interest', userObject)
@@ -50,21 +55,18 @@ class Forms  extends Component {
             }).catch((error) => {
                 console.log(error)
             });
-
         
     }
 
-
-
-
     render() {
+        
         return(
             <Row>
-                <form  onSubmit={this.onSubmit}>
+                <form onSubmit={this.onSubmit}>
                     <p className="center-align tit">adicione um investimento:</p>
                     <hr className="hrBl"/>
                     <label className=" col s4">
-                        Tipo*:
+                        Tipo:
                     <select className="browser-default mbForm mtForm" value={this.state.type} onChange={this.onChangeType}>
                         <option value="" disabled selected>Selecione</option>
                         <option value="Renda_Fixa" >Renda Fixa</option>
@@ -72,13 +74,14 @@ class Forms  extends Component {
                     </select>                        
                     </label>
                     <label className=" col s4">
-                        Valor*:
+                        Valor:
                         <input className='padInput mbForm mtForm' type="number" placeholder="Valor" value={this.state.value} onChange={this.onChangevalue}/>
                     </label>
                     <label className=" col s4">
-                        Data*:
+                        Data:
                         <input className='padInput mtForm' type="date" value={this.state.date} onChange={this.onChangeDate}/>
                     </label>
+                    <div className="col s12"><p>Todos os campos são obrigatórios***</p></div>
                     <div className="col m12 l12 s12">
                         <div className="col m5 l5 s4"></div>
                         <div className="col m2 l2 s4">

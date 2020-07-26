@@ -1,10 +1,8 @@
 //Importando o React
 import React, { Component } from 'react';
-import { Button, Modal} from 'react-materialize';
-import axios from 'axios'
-import Icon from 'react-materialize/lib/Icon';
-
-const API_URL = 'https://api-fullstackgo.herokuapp.com/api';
+import { Button, Modal, Icon} from 'react-materialize';
+import axios from 'axios';
+import CurrencyInput from 'react-currency-input';
 
 class Add extends Component {
     constructor(props) {
@@ -22,6 +20,10 @@ class Add extends Component {
         }
     }
 
+    getInitialState(){
+        return ({amount: "0.00"});
+    }
+ 
     onChangeType(e) {
         this.setState({ type: e.target.value })
     }
@@ -97,7 +99,7 @@ class Add extends Component {
                     </label>
                     <label className=" col s4">
                         Valor:
-                        <input className='padInput mbForm mtForm' type="number" placeholder="Valor" value={this.state.value} onChange={this.onChangevalue}/>
+                        <CurrencyInput prefix="R$" decimalSeparator="," thousandSeparator="." className='padInput mbForm mtForm' type="number" value={this.state.value.amount} onChange={this.onChangevalue}/>
                     </label>
                     <label className=" col s4">
                         Data:
