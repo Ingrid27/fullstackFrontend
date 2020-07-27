@@ -10,7 +10,7 @@ class Auth {
     auth0 = new auth0.WebAuth({
         domain:"dev-vny--4ui.us.auth0.com",
         clientID:"HfXSTmsqkuqCz0IGgLF0Nt4PVUsl9fCt",
-        redirectUri:"http://localhost:3001/callback",
+        redirectUri:"http://localhost:3001/callback" || "https://minha-carteira.netlify.app/callback",
         audience:"https://dev-vny--4ui.us.auth0.com/userinfo",
         responseType: "token id_token",
         scope: "openid profile"
