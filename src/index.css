@@ -174,7 +174,16 @@ td button:hover, td button:focus{
 .addNull{
   color: silver!important;
 }
+.mt20{
+  margin-top: 20px;
+}
+.progress .indeterminate {
+  background-color: #00b0ff;
+}
 
+.progress {
+  background-color: #7fcaff;
+}
 /* /////////////RESPONSIVE/////////////////////
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
